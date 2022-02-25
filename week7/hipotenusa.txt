@@ -1,0 +1,183 @@
+ # if x é o comprimento da hipotenusa de um triangulo com lados de comprimento inteiro
+    # # (se existe um triangulo retangulo com lados inteiros cuja hipotenusa é igual a esse numero)
+    # # n é uma hipotenusa se existem numeros inteiros i e j tais que
+    # # nˆ2 = iˆ2 + jˆ2
+    # é_hipotenusa = True
+
+
+
+    while 1 <= x:
+        #     if é_hipotenusa:
+        #         # x é hipotenusa de algum triangulo ?
+        #         soma
+        # soma
+        # recebe um numero inteiro positivo n
+        # devolve a soma de todos os inteiros entre 1 e n
+        # return soma_dos_inteiros
+        # que sao comprimento da hipotenusa de algum trianqulo retangulo com catetos inteiros.
+
+        # um mesmo num pode ser hipotenusa de varios triangulos
+        # mas deve ser somado somente uma vez
+
+
+
+        A parte mais difícil do exercício, que é primeiro entendê-lo, e depois detectar números que são hipotenusas, você já fez. Agora a única coisa que falta é saber se um número já foi contado como hipotenusa.
+
+Um jeito de resolver isso é utilizar uma variável booleana que, para cada iteração do laço externo vai ser inicializada como False e, assim que for detectado que o número n processado na iteração for uma hipotenusa, você pode mudar o seu valor para True. Assim, quando for detectado que novos valores de i e j também passam no teste para a mesma hipotenusa, basta checar a variável booleana. Se ela for True, significa que n já foi contado como hipotenusa e isso não precisa ser verificado novamente. Deu para entender?
+
+Além disso, lembre-se que o exercício pede que seja calculada a soma de todas as hipotenusas, de 1 até n, e não o número de hipotenusas de 1 até n, que parece que é o que o seu programa está calculando atualmente.
+
+hipotenusa: 25 (i: 7 j: 24 )
+hipotenusa: 25 (i: 15 j: 20 )
+hipotenusa: 25 (i: 20 j: 15 )
+hipotenusa: 25 (i: 24 j: 7 )
+hipotenusa: 20 (i: 12 j: 16 )
+hipotenusa: 20 (i: 16 j: 12 )
+hipotenusa: 17 (i: 8 j: 15 )
+hipotenusa: 17 (i: 15 j: 8 )
+hipotenusa: 15 (i: 9 j: 12 )
+hipotenusa: 15 (i: 12 j: 9 )
+hipotenusa: 13 (i: 5 j: 12 )
+hipotenusa: 13 (i: 12 j: 5 )
+hipotenusa: 10 (i: 6 j: 8 )
+hipotenusa: 10 (i: 8 j: 6 )
+hipotenusa: 5 (i: 3 j: 4 )
+hipotenusa: 5 (i: 4 j: 3 )
+hipotenusas: 16
+
+
+
+
+mport math
+
+def é_hipotenusa(n):
+	hipotenusa = False
+	a = 1
+	b = 1
+	while hipotenusa == False:
+		while b <= n:
+			while a <= n:
+				hip = math.sqrt((a**2) + (b**2))
+				if hip == n:
+					return True
+					return n
+				else:
+					a = a + 1
+			b = b + 1
+			a = 1
+		if hip != n:
+			return False
+		
+		
+def soma_hipotenusas(n):
+	soma = 0
+	while n > 0:
+		if é_hipotenusa(n) ==  True:
+			soma = soma + é_hipotenusa(n)
+		n = n - 1
+	return soma
+
+
+
+
+
+def calcular_hipotenusa(a, b):
+    return ((a*a) + (b*b))
+
+def soma_hipotenusas(n):
+    c = 1
+    soma = 0
+    while (c <= n):
+        _c = (c*c)       
+        a = 1
+        b = 1
+        while (a < n):
+            while (b < n):
+                if (_c == calcular_hipotenusa(a, b)):
+                    #print(a, " - " ,b , " - " , c)
+                    soma = soma + c
+                    a = n
+                    break
+                b += 1
+            a += 1
+            b = a
+        c += 1
+  
+    return soma
+
+
+
+    N​a verdade, o exercício trabalha sim com hipotenusas 
+    e não com as somas dos quadrados dos catetos. 
+
+A​qui, adaptei minha função para 
+printar 
+os primeiros pares de catetos 
+que resultam em uma hipotenusa inteira
+
+ e testei com o exemplo do enunciado. 
+ Veja que os números batem com o exemplo:
+
+>>>soma_hipotenusas(25)
+3^2 + 4^2 = 5^2
+6^2 + 8^2 = 10^2
+5^2 + 12^2 = 13^2
+9^2 + 12^2 = 15^2
+8^2 + 15^2 = 17^2
+12^2 + 16^2 = 20^2
+7^2 + 24^2 = 25^2
+105
+
+3^2 + 4^2 = 25^2
+2^2 + 4^2 = 20^2
+3^2 + 3^2 = 18^2
+1^2 + 4^2 = 17^2
+2^2 + 3^2 = 13^2
+1^2 + 3^2 = 10^2
+2^2 + 2^2 = 8^2
+1^2 + 2^2 = 5^2
+0
+
+
+lilian@Lilians-MacBook-Air week7 % python3 ishypotenuse.py
+3^2 + 4^2 = 25^2
+4^2 + 3^2 = 25^2
+2^2 + 4^2 = 20^2
+4^2 + 2^2 = 20^2
+3^2 + 3^2 = 18^2
+1^2 + 4^2 = 17^2
+4^2 + 1^2 = 17^2
+2^2 + 3^2 = 13^2
+3^2 + 2^2 = 13^2
+1^2 + 3^2 = 10^2
+3^2 + 1^2 = 10^2
+2^2 + 2^2 = 8^2
+1^2 + 2^2 = 5^2
+
+0
+
+7^2 + 24^2 = 25^2
+15^2 + 20^2 = 25^2
+20^2 + 15^2 = 25^2
+24^2 + 7^2 = 25^2
+x = 5
+
+def é_hipotenusa(hipo):
+    A = 1
+    B = 2
+    while hipo > B:
+        while hipo > A:
+            if hipo^2 == A^2 + B^2:
+                break
+                return True
+            A = A + 1
+        A = 1
+        B = B + 1
+        
+def soma_hipotenusas(x):
+    soma = 0
+    while x >= 5:
+        if é_hipotenusa(x) == True:
+            soma = soma + hipo
+        x = x - 1
+    return soma

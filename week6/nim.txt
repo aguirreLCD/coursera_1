@@ -1,0 +1,165 @@
+
+# começar solicitando ao usuário
+# que escolha se prefere
+# jogar apenas uma partida (opção 1)
+# ou um campeonato (opção 2).
+
+
+# def partida():
+# solicita os valores de n e m
+
+# n = número de peças inicial
+# n = int(input(""))
+
+# m = número máximo de peças que é possível retirar em uma jogada
+# m = int(input(""))
+
+# inicia o jogo
+
+# jogada inicial é definida se
+#     n é é multiplo de m+1 = jogador começa
+# else = computador começa
+
+# if n is múltiplo de(m + 1):
+#     computador convida para jogador iniciar
+#     "Você começa!"
+# else:
+#     computador inicia jogando
+#     "Computador começa!"
+
+# alternando entre jogador e computador,
+# alternando as chamadas das funçoes:
+
+# while
+
+# computador_escolhe_jogada(n, m)
+# usuario_escolhe_jogada(n, m)
+
+# atualiza valor de n
+
+
+# A cada jogada, deve ser impresso na tela o estado atual do jogo,
+# ou seja,
+# quantas peças foram removidas na última jogada
+# e quantas restam na mesa.
+
+# Quando a última peça é removida,
+# essa função imprime na tela a mensagem
+# "O computador ganhou!"
+# ou
+# "Você ganhou!"
+
+
+# seu programa deve sempre "lembrar"
+# qual é o número de peças atualmente no tabuleiro
+# e qual é o máximo de peças a retirar em cada jogada.
+
+
+# def computador_escolhe_jogada(n, m):
+#
+# return numero de pecas removido
+
+
+# def usuario_escolhe_jogada(n, m):
+# solicita jogada: valor =  n - 1   até   m
+# informa se o valor is_valid
+# if is_valid:
+#     return valor
+# else:
+#     solicita jogada válida: valor =  n - 1   até   m
+# return numero de pecas removido
+#
+
+
+# Se seu programa usar input() sem que ele esteja dentro de alguma função,
+#  coloque-o no final do programa.
+
+
+# def campeonato():
+# chamar partida 3 vezes
+
+# while
+# partida()
+# partida()
+# partida()
+
+# mostrar o placar das 3 partidas
+# indicar vencedor
+# Placar: Você ??? X ??? Computador
+
+
+# $ > python3 jogo_nim.py
+
+# Bem-vindo ao jogo do NIM! Escolha:
+
+# 1 - para jogar uma partida isolada
+# 2 - para jogar um campeonato 2
+
+# Voce escolheu um campeonato!
+
+# **** Rodada 1 ** **
+
+# Quantas peças? 3
+# Limite de peças por jogada? 1
+
+# Computador começa!
+
+# O computador tirou uma peça.
+# Agora restam 2 peças no tabuleiro.
+
+# Quantas peças você vai tirar? 2
+
+# Oops! Jogada inválida! Tente de novo.
+
+# Quantas peças você vai tirar? 1
+
+# Você tirou uma peça.
+# Agora resta apenas uma peça no tabuleiro.
+
+# O computador tirou uma peça.
+# Fim do jogo! O computador ganhou!
+
+# **** Rodada 2 ** **
+
+# Quantas peças? 3
+# Limite de peças por jogada? 2
+
+# Voce começa!
+
+# Quantas peças você vai tirar? 2
+# Voce tirou 2 peças.
+# Agora resta apenas uma peça no tabuleiro.
+
+# O computador tirou uma peça.
+# Fim do jogo! O computador ganhou!
+
+# **** Rodada 3 ** **
+
+# Quantas peças? 4
+# Limite de peças por jogada? 3
+
+# Voce começa!
+
+# Quantas peças você vai tirar? 2
+# Voce tirou 2 peças.
+# Agora restam 2 peças no tabuleiro.
+
+# O computador tirou 2 peças.
+# Fim do jogo! O computador ganhou!
+
+# **** Final do campeonato! ** **
+
+# Placar: Você 0 X 3 Computador
+
+
+
+ O objetivo é deixar sempre múltiplos de (m+1) peças ao jogador oponente. 
+ Ou seja, estamos na vez do computador: 
+ têm n=13 peças no jogo e o computador pode retirar até m=4.
+ Se o computador retirar 4 peças, no jogo restarão 9.
+ (m + 1) equivale a 5, e 9 não é múltiplo de 5. 
+ Agora, se o computador retirar 3 peças, restarão 10 no jogo, e 10 é múltiplo de (m + 1) = 5.
+ Nesse caso, o computador utilizou a estratégia vencedora. 
+ verificar qual a quantidade de peças que o computador deve retirar para que, 
+ finalizada a jogada, 
+ fiquem no tabuleiro um número de peças que seja múltiplo de (m + 1).
